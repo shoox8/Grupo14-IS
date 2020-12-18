@@ -6,9 +6,6 @@
 #include "sendero.hpp"
 #include "monitor.hpp"
 
-void thisIsATest() {
-	ASSERTM("start writing tests", false);
-}
 
 void correctEspacioNatRegistration() {
 	string nombre, espacionatural, estado;

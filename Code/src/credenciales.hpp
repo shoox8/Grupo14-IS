@@ -134,17 +134,21 @@ void mostrarMenuMonitor(){
         	break;
         
         case 4:
-        	programarRuta("../Grupo14-Practica4/src/programacion.txt");
+        {
+            Monitor m;
+        	m.programarRuta("../Grupo14-Practica4/src/programacion.txt");
             cin.ignore();
             cin.get();
             break;
-
+        }
         case 5:
-        	mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
+        {
+            Monitor m;
+        	m.mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
             cin.ignore();
             cin.get();
             break;
-
+        }
         default:
             cout<<"Marque una opcion correcta"<<endl;
             break;
