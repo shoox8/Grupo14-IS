@@ -107,7 +107,9 @@ void mostrarMenuMonitor(){
         cout << "1. Registrar Ruta" << endl;
         cout << "2. Mostrar Ruta" << endl;
         cout << "3. Mostrar Rutas en Mantenimiento" << endl;
-        cout << "4. Salir del programa" <<endl;
+        cout << "4. Programar Rutas" << endl;
+        cout << "5. Mostrar Rutas Programadas" << endl;
+        cout << "6. Salir del programa" <<endl;
 
         cout<<"\nIngrese una opcion";
         cin>>opcion;
@@ -125,16 +127,28 @@ void mostrarMenuMonitor(){
             cin.get();
             break;
 	
-	case 3:
-	    MostrarRutaMantenimiento("../Grupo14-Practica4/src/ruta.txt");
-	    cin.ignore();
-	    cin.get();
-	    break;		
+        case 3:
+        	MostrarRutaMantenimiento("../Grupo14-Practica4/src/ruta.txt");
+        	cin.ignore();
+        	cin.get();
+        	break;
         
+        case 4:
+        	programarRuta("../Grupo14-Practica4/src/programacion.txt");
+            cin.ignore();
+            cin.get();
+            break;
+
+        case 5:
+        	mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
+            cin.ignore();
+            cin.get();
+            break;
+
         default:
             cout<<"Marque una opcion correcta"<<endl;
             break;
         }
-     }while(opcion!=3);
+     }while(opcion!=5);
 }
 #endif

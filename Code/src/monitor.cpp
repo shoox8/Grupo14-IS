@@ -174,3 +174,73 @@ void Monitor::pedirMonitor()
     cout << "Introduce la ruta del monitor: " << endl;
     cin >> _ruta;
 }
+
+void Monitor::programarRuta(string nombreFichero){
+
+	int idruta;
+	string tipo;
+	string fecha;
+	int duracion;
+	float longitud;
+	int personas;
+
+	cout <<"Introduce el Identificador de la Ruta: "<<endl;
+	cin >> idruta;
+
+	cout <<"Introduce el Tipo de la Ruta: "<<endl;
+	cin >> tipo;
+
+	cout <<"Introduce la Fecha en la que se realizara la Ruta: "<<endl;
+	cin >> fecha;
+
+	cout <<"Introduce la duracion de la Ruta: "<<endl;
+	cin >> duracion;
+
+	cout <<"Introduce la Longitud de la Ruta: "<<endl;
+	cin >> longitud;
+
+	cout <<"Introduce el numero de personas que realizaran la Ruta: "<<endl;
+	cin >> personas;
+
+	fstream archivo;
+	    archivo.open(nombreFichero,fstream::app);
+
+		if(!archivo.is_open()){
+			cout<<"Error al abrir el fichero de programacion.txt"<<endl;
+		}
+
+	    archivo<<idruta<<"\t"<<tipo<<"\t"<<fecha<<"\t"<<duracion<<"\t"<<longitud<<"\t"<<personas<<"\t"<<endl;
+	    archivo.close();
+}
+
+void Monitor::mostrarProgramacion()
+{
+
+	ifstream archivo("programacion.txt");
+	if(!archivo.is_open()){
+		cout<<"Error al abrir el fichero de programacion.txt"<<endl;
+	}
+
+	int idruta;
+	string tipo;
+	string fecha;
+	float hora;
+	int duracion;
+	float longitud;
+	int personas;
+
+    cout<< "| ID Ruta | \t | Tipo | \t | Fecha | \t | Hora | \t | Duracion | \t | Longitud | \t | Numero Personas |" <<endl;
+    while (!archivo.eof()) {
+		archivo>>idruta;
+		archivo>>tipo;
+		archivo>>fecha;
+		archivo>>hora;
+        archivo>>duracion;
+        archivo>>longitud;
+        archivo>>personas;
+	if (archivo.eof()) break;
+		cout << "|" <<idruta << "| \t |" <<tipo << "| \t |" << fecha << "| \t |" << hora << "| \t |" << duracion << "| \t |" << longitud << "|"<< personas << "|" <<endl;
+        archivo.ignore();
+	}
+	archivo.close();
+}
