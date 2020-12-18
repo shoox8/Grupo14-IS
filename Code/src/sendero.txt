@@ -1,0 +1,8 @@
+Sendero1	Cazorla	Disponible	4
+Sendero2	Cazorla	Disponible	3
+Sendero3	Donana	En-Reformas	5
+Sendero4	Sierra1	Disponible	2
+Sendero5	SierraBetica	Disponible	2
+
+Sendero6	Cazorla	Disponible	3
+Sendero7	Cazorla	Disponible	2
