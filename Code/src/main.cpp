@@ -25,7 +25,7 @@ int main()
             case 1:
                 // Lista de instrucciones de la opción 1
 				cin >> aux;
-                if (loginPass(aux, "../Grupo14-Practica4/src/admin.txt")){
+                if (loginPass(aux, "../Code/src/admin.txt")){
                 system("cls");
                 mostrarMenuAdmin();
                 }else{
@@ -37,7 +37,7 @@ int main()
             case 2:
                 // Lista de instrucciones de la opción 2
 				cin >> aux;
-				 if (loginPass(aux, "../Grupo14-Practica4/src/monitor.txt")){
+				 if (loginPass(aux, "../Code/src/monitor.txt")){
                 system("cls");
                 mostrarMenuMonitor();
                 }else{

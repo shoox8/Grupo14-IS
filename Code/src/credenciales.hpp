@@ -69,23 +69,19 @@ void mostrarMenuAdmin(){
 				cin.get();
 				break;
             case 3:
-<<<<<<< HEAD
-		        {
-		
-		        m.registrarMonitor("../Grupo14-Practica4/src/monitor.txt");
-		
-            }
-=======
-	        Monitor m;
+            {
+            	Monitor m;
                 m.pedirMonitor();
-		m.registrarMonitor("monitor.txt");
->>>>>>> 5fab8129215674a798d136750a29743917aedc37
+                m.registrarMonitor("monitor.txt");
                 break;
+            }
             case 4:
+            {
+            	Monitor m;
 			    m.mostrarMonitor();
                 cin.ignore();
 				cin.get();
-
+            }
                 break;
             case 5:
                 registrarSendero("../Grupo14-Practica4/src/sendero.txt");

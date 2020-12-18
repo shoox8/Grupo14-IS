@@ -3,11 +3,8 @@
 #include "xml_listener.h"
 #include "cute_runner.h"
 // IMPORTAR TODOS LOS FICHEROS DEL PROYECTO
-<<<<<<< HEAD
 #include "sendero.hpp"
-=======
 #include "monitor.hpp"
->>>>>>> 5fab8129215674a798d136750a29743917aedc37
 
 void thisIsATest() {
 	ASSERTM("start writing tests", false);
