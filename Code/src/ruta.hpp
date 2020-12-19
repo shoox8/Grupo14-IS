@@ -7,22 +7,23 @@ using namespace std;
 
 class Ruta{
     private:
-        string _nombre, _tipo, _direccion, _localidad, _estado;
+        string _nombre, _tipo, _direccion, _localidad, _estado,_sendero;
         int _id_ruta, _duracion;
-        float _longitud; 
+        float _longitud;
     public:
         Ruta(){
             _nombre = "";
             _tipo = "";
             _direccion = "";
             _localidad = "";
+            _sendero = "";
             _id_ruta = 0;
             _estado = "";
             _duracion = 0;
             _longitud = 0;
         }
 
-        Ruta(string nombre, string tipo, string direccion, string localidad, int id_ruta, int estado, int duracion, float longitud){
+        Ruta(string nombre, string tipo, string sendero, string direccion, string localidad, int id_ruta, int estado, int duracion, float longitud){
             _nombre = nombre;
             _tipo = tipo;
             _direccion = direccion;
@@ -41,6 +42,7 @@ class Ruta{
             this->_estado = m._estado;
             this->_duracion = m._duracion;
             this->_longitud = m._longitud;
+            this->_sendero = m._sendero;
         }
         inline void setNombreRuta(string nombre){_nombre = nombre;}
         inline void setTipoRuta(string tipo){_tipo = tipo;}
@@ -50,8 +52,10 @@ class Ruta{
         inline void setEstadoRuta(string estado){_estado = estado;}
         inline void setDuracionRuta(int duracion){_duracion = duracion;}
         inline void setLongitudRuta(float longitud){_longitud = longitud;}
+        inline void setSendero(string sendero){_sendero = sendero;}
 
         inline string getNombreRuta()const{return _nombre;}
+        inline string getSendero()const{return _sendero;}
         inline string getTipoRuta()const{return _tipo;}
         inline string getDireccionRuta()const{return _direccion;}
         inline string getLocalidadRuta()const{return _localidad;}
@@ -64,6 +68,6 @@ class Ruta{
 void RegistrarRuta(string nFichero);
 void MostrarRuta(string nFichero);
 void MostrarRutaMantenimiento(string nFichero);
-
+bool isValidSendero(string nombreFichero, string SenderoUser );
 
 #endif

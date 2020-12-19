@@ -10,8 +10,10 @@ void RegistrarRuta(string nFichero){
     cout<<"Introduce el nombre de la Ruta: " <<endl;
     cin>>nombre;
 
-    cout<<"Introduce el sendero de la Ruta: " <<endl ;
-    cin>>sendero;
+    do{
+	   cout << "Introduce el Sendero donde se encuentre la ruta: " << endl;
+	   cin >> sendero;
+       } while (!isValidSendero(nFichero, sendero));
 
     cout<<"Introduce el tipo de la Ruta: " <<endl;
     cin>>tipo;
@@ -106,3 +108,40 @@ void MostrarRutaMantenimiento(string nFichero){
     archivo.close();
 }
 
+
+bool isValidSendero(string nombreFichero, string SenderoUser ){
+    ifstream archivo(nombreFichero);
+	if(!archivo.is_open()){
+		cout<<"Error al abrir el fichero de sendero.txt"<<endl;
+	}
+
+	string nombre, tipo, direccion, localidad, estado,sendero;
+	int duracion;
+	float longitud;
+	    int maxContSendero = 0;
+
+	    while (!archivo.eof()) {
+			archivo>>nombre;
+			archivo>>sendero;
+			archivo>>tipo;
+			archivo>>direccion;
+			archivo>>localidad;
+			archivo>>estado;
+			archivo>>duracion;
+			archivo>>longitud;
+
+	        if(sendero == SenderoUser)
+	        	maxContSendero++;
+
+	        if (maxContSendero > 10) {
+	        	cout << "No se puede registrar una ruta en esta ruta" << endl;
+	        	return false;
+	        }
+
+	        archivo.ignore();
+		}
+
+		archivo.close();
+
+		return true;
+}

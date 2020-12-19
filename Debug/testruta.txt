@@ -1,0 +1,10 @@
+Ruta1	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta2	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta3	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta4	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta5	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta6	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta7	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta8	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta9	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
+Ruta10	Sendero1	Bici	Cazorla	Jaen	Disponible	30	20
