@@ -7,11 +7,12 @@ using namespace std;
 
 class Ruta{
     private:
-        string _nombre, _tipo, _direccion, _localidad, _estado;
+        string _sendero, _nombre, _tipo, _direccion, _localidad, _estado;
         int _id_ruta, _duracion;
         float _longitud; 
     public:
         Ruta(){
+            _sendero="";
             _nombre = "";
             _tipo = "";
             _direccion = "";
@@ -22,7 +23,8 @@ class Ruta{
             _longitud = 0;
         }
 
-        Ruta(string nombre, string tipo, string direccion, string localidad, int id_ruta, int estado, int duracion, float longitud){
+        Ruta(string sendero, string nombre, string tipo, string direccion, string localidad, int id_ruta, int estado, int duracion, float longitud){
+            _sendero = sendero;
             _nombre = nombre;
             _tipo = tipo;
             _direccion = direccion;
@@ -33,6 +35,7 @@ class Ruta{
             _longitud = longitud;
         }
         Ruta(const Ruta &m){
+            this->_sendero=m._sendero;
             this->_nombre = m._nombre;
             this->_tipo = m._tipo;
             this->_direccion = m._direccion;
@@ -42,6 +45,7 @@ class Ruta{
             this->_duracion = m._duracion;
             this->_longitud = m._longitud;
         }
+        inline void setNombreSendero(string sendero){_sendero=sendero;}
         inline void setNombreRuta(string nombre){_nombre = nombre;}
         inline void setTipoRuta(string tipo){_tipo = tipo;}
         inline void setDireccionRuta(string direccion){_direccion = direccion;}
@@ -51,6 +55,7 @@ class Ruta{
         inline void setDuracionRuta(int duracion){_duracion = duracion;}
         inline void setLongitudRuta(float longitud){_longitud = longitud;}
 
+        inline string getNombreSendero()const{return _sendero;}
         inline string getNombreRuta()const{return _nombre;}
         inline string getTipoRuta()const{return _tipo;}
         inline string getDireccionRuta()const{return _direccion;}
@@ -64,6 +69,6 @@ class Ruta{
 void RegistrarRuta(string nFichero);
 void MostrarRuta(string nFichero);
 void MostrarRutaMantenimiento(string nFichero);
-
+bool Senderoexiste(string nFichero, string sendero);
 
 #endif
