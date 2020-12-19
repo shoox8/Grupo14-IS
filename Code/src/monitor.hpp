@@ -86,10 +86,12 @@ class Monitor
 
 		bool rutaValida(string ruta);
 
-		void programarRuta(string nombreFichero);
 
-		void mostrarProgramacion();
 
 };
+
+		void programarRuta(string nombreFichero);
+
+		void mostrarProgramacion(string nombreFichero);
 
 #endif

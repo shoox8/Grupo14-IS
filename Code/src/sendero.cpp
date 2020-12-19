@@ -54,7 +54,6 @@ void mostrarSendero(string nombreFichero){
 		archivo>>estado;
         archivo>>rutas;
 		cout << "|" <<nombre << "| \t |" << espacionatural << "| \t |" << estado << "| \t |"<< rutas << " |" <<endl;
-        archivo.ignore();
 	}
 	archivo.close(); //Cerramos el archivo.
 

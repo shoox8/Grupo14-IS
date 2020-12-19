@@ -175,72 +175,77 @@ void Monitor::pedirMonitor()
     cin >> _ruta;
 }
 
-void Monitor::programarRuta(string nombreFichero){
+void programarRuta(string nombreFichero){
 
-	int idruta;
-	string tipo;
-	string fecha;
-	int duracion;
-	float longitud;
-	int personas;
+		Monitor aux;
+	    int idruta;
+	    string tipo;
+	    string fecha;
+	    string hora;
+	    int npersonas;
+	    int duracion;
+	    float longitud;
 
-	cout <<"Introduce el Identificador de la Ruta: "<<endl;
-	cin >> idruta;
+	    cout << "Introduce el id de la Ruta: " << endl;
+	    cin >> idruta;
 
-	cout <<"Introduce el Tipo de la Ruta: "<<endl;
-	cin >> tipo;
+	    cout << "Introduce el tipo de Ruta: " << endl;
+	    cin >> tipo;
 
-	cout <<"Introduce la Fecha en la que se realizara la Ruta: "<<endl;
-	cin >> fecha;
+	    cout << "Introduce la fecha en la que se realizara la Ruta: " << endl;
+	    cin >> fecha;
 
-	cout <<"Introduce la duracion de la Ruta: "<<endl;
-	cin >> duracion;
+	    cout << "Introduce la hora a la que se realizara la Ruta: " << endl;
+	    cin >> hora;
 
-	cout <<"Introduce la Longitud de la Ruta: "<<endl;
-	cin >> longitud;
+	    cout << "Introduce el numero de personas que asistiran Ruta: " << endl;
+	    cin >> npersonas;
 
-	cout <<"Introduce el numero de personas que realizaran la Ruta: "<<endl;
-	cin >> personas;
+	    cout << "Introduce la duracion (en horas) de la Ruta: " << endl;
+	    cin >> duracion;
 
-	fstream archivo;
+	    cout << "Introduce la longitud (en kilometros) de la Ruta: " << endl;
+	    cin >> longitud;
+
+
+	    fstream archivo;
 	    archivo.open(nombreFichero,fstream::app);
 
 		if(!archivo.is_open()){
 			cout<<"Error al abrir el fichero de programacion.txt"<<endl;
 		}
 
-	    archivo<<idruta<<"\t"<<tipo<<"\t"<<fecha<<"\t"<<duracion<<"\t"<<longitud<<"\t"<<personas<<"\t"<<endl;
+	    archivo<<idruta<<"\t"<<tipo<<"\t"<<fecha<<"\t"<<hora<<"\t"<<npersonas<<"\t"<<duracion<<"\t"<<longitud<<"\n";
 	    archivo.close();
 }
 
-void Monitor::mostrarProgramacion()
+void mostrarProgramacion(string nombreFichero)
 {
 
-	ifstream archivo("programacion.txt");
-	if(!archivo.is_open()){
-		cout<<"Error al abrir el fichero de programacion.txt"<<endl;
-	}
+	ifstream archivo(nombreFichero);
+		if(!archivo.is_open()){
+			cout<<"Error al abrir el fichero de sendero.txt"<<endl;
+		}
 
-	int idruta;
-	string tipo;
-	string fecha;
-	float hora;
-	int duracion;
-	float longitud;
-	int personas;
+		int idruta;
+		string tipo;
+	    string fecha;
+		string hora;
+		int npersonas;
+	    int duracion;
+	    float longitud;
 
-    cout<< "| ID Ruta | \t | Tipo | \t | Fecha | \t | Hora | \t | Duracion | \t | Longitud | \t | Numero Personas |" <<endl;
-    while (!archivo.eof()) {
-		archivo>>idruta;
-		archivo>>tipo;
-		archivo>>fecha;
-		archivo>>hora;
-        archivo>>duracion;
-        archivo>>longitud;
-        archivo>>personas;
-	if (archivo.eof()) break;
-		cout << "|" <<idruta << "| \t |" <<tipo << "| \t |" << fecha << "| \t |" << hora << "| \t |" << duracion << "| \t |" << longitud << "|"<< personas << "|" <<endl;
-        archivo.ignore();
-	}
-	archivo.close();
+	    	cout<< "| ID Ruta | \t | Tipo | \t | Fecha | \t | Hora | \t | Numero Personas| \t | Duracion | \t | Longitud |" <<endl;
+	    while (!archivo.eof()) {
+			archivo>>idruta;
+			archivo>>tipo;
+			archivo>>fecha;
+	        archivo>>hora;
+	        archivo>>npersonas;
+	        archivo>>duracion;
+	        archivo>>longitud;
+			cout << "|" << idruta << "| \t |" << tipo << "| \t |" << fecha << "| \t |" << hora << "| \t |" << npersonas << "| \t |" << duracion << "| \t |" << longitud << "|" << endl;
+	        archivo.ignore();
+		}
+		archivo.close();
 }

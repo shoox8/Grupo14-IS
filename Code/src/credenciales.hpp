@@ -59,12 +59,12 @@ void mostrarMenuAdmin(){
         switch (opcion) {
             case 1:
                 // Lista de instrucciones de la opción 1
-                registrarEspacioNat("../Grupo14-Practica4/src/espacionat.txt");
+                registrarEspacioNat("espacionat.txt");
 				cin.ignore();
 				cin.get();
 				break;
             case 2:
-                mostrarEspacioNat("../Grupo14-Practica4/src/espacionat.txt");
+                mostrarEspacioNat("espacionat.txt");
 				cin.ignore();
 				cin.get();
 				break;
@@ -84,12 +84,12 @@ void mostrarMenuAdmin(){
             }
                 break;
             case 5:
-                registrarSendero("../Grupo14-Practica4/src/sendero.txt");
+                registrarSendero("sendero.txt");
             	cin.ignore();
             	cin.get();
             	break;
             case 6:
-                mostrarSendero("../Grupo14-Practica4/src/sendero.txt");
+                mostrarSendero("sendero.txt");
           		cin.ignore();
             	cin.get();
             	break;
@@ -116,39 +116,35 @@ void mostrarMenuMonitor(){
         switch (opcion)
         {
         case 1:
-            RegistrarRuta("../Grupo14-Practica4/src/ruta.txt");
+            RegistrarRuta("ruta.txt");
             cin.ignore();
             cin.get();
             break;
         
-        case 2:/*
-            MostrarRuta("../Grupo14-Practica4/src/ruta.txt");
+        case 2:
+            MostrarRuta("ruta.txt");
             cin.ignore();
-            cin.get();*/
+            cin.get();
             break;
 	
         case 3:
-        	MostrarRutaMantenimiento("../Grupo14-Practica4/src/ruta.txt");
+        	MostrarRutaMantenimiento("ruta.txt");
         	cin.ignore();
         	cin.get();
         	break;
         
         case 4:
-        {
-            //Monitor m;
-        	//m.programarRuta("../Grupo14-Practica4/src/programacion.txt");
-            cin.ignore();
-            cin.get();
-            break;
-        }
+        	programarRuta("programacion.txt");
+        	cin.ignore();
+        	cin.get();
+        	break;
+
         case 5:
-        {
-            //Monitor m;
-        	//m.mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
-            cin.ignore();
-            cin.get();
-            break;
-        }
+        	mostrarProgramacion("programacion.txt");
+        	cin.ignore();
+        	cin.get();
+        	break;
+
         default:
             cout<<"Marque una opcion correcta"<<endl;
             break;
