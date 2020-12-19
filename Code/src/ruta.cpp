@@ -3,12 +3,15 @@
 
 void RegistrarRuta(string nFichero){
 
-    string nombre, tipo, direccion, localidad, estado;
-    int id_ruta, duracion;
+    string nombre, tipo, direccion, localidad, estado,sendero;
+    int duracion;
     float longitud;
 
     cout<<"Introduce el nombre de la Ruta: " <<endl;
     cin>>nombre;
+
+    cout<<"Introduce el sendero de la Ruta: " <<endl ;
+    cin>>sendero;
 
     cout<<"Introduce el tipo de la Ruta: " <<endl;
     cin>>tipo;
@@ -36,7 +39,7 @@ void RegistrarRuta(string nFichero){
     if(!archivo.is_open()){
         cout<<"Error al abrir el fichero ruta.txt"<<endl;;
     }
-    archivo<<endl<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+    archivo<<endl<<"\t"<<nombre<<"\t"<<sendero<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
     archivo.close();
 }
 
@@ -45,28 +48,23 @@ void MostrarRuta(string nFichero){
     if(!archivo.is_open()){
         cout<<"Error al abrir el fichero ruta.txt"<<endl;
     }
-    string nombre;
-    string tipo;
-    string direccion;
-    string localidad;
-    int id_ruta;
-    string estado;
+    string nombre,tipo,direccion,localidad,estado,sendero;
     int duracion;
     float longitud;
 
-    cout << "|Nombre| \t |Tipo| \t |Direccion| \t |Localidad| \t |Id_ruta| \t |Estado| \t |Duracion| \t |Longitud|" <<endl;
+    cout << "|Nombre| \t |Sendero| \t |Tipo| \t |Direccion| \t |Localidad| \t |Estado| \t |Duracion| \t |Longitud|" <<endl;
     
     while (!archivo.eof()){
         archivo>>nombre;
+        archivo>>sendero;
         archivo>>tipo;
         archivo>>direccion;
         archivo>>localidad;
-        archivo>>id_ruta;
         archivo>>estado;
         archivo>>duracion;
         archivo>>longitud;
 
-        cout << "\t" << nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << id_ruta << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
+        cout << "\t" << nombre << "\t" << sendero << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
         archivo.ignore();
     }
     archivo.close();
@@ -107,3 +105,4 @@ void MostrarRutaMantenimiento(string nFichero){
     
     archivo.close();
 }
+

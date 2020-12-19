@@ -93,26 +93,26 @@ bool isValidEspacioNat(string nombreFichero, string espacioNat ){
 		return true;
 }
 
-bool existEspacioNat(string nombreFichero, string espacioNat){
-    bool exist = false
-	ifstream archivo(nombreFichero);
-	if(!archivo.is_open()){
-		cout<<"Error al abrir el fichero de espacionat.txt"<<endl;
-	}
-
-	string nombre;
-	string provincia;
-    string logros;
-
-    while (!archivo.eof()) {
-		archivo>>nombre;
-		archivo>>provincia;
-        archivo>>logros;
-
-		if(nombre==espacioNat){
-			exist=true;
-		}
-	archivo.close(); //Cerramos el archivo.
-	return exist;
-}
+//bool existEspacioNat(string nombreFichero, string espacioNat){
+//    bool exist = false
+//	ifstream archivo(nombreFichero);
+//	if(!archivo.is_open()){
+//		cout<<"Error al abrir el fichero de espacionat.txt"<<endl;
+//	}
+//
+//	string nombre;
+//	string provincia;
+//    string logros;
+//
+//    while (!archivo.eof()) {
+//		archivo>>nombre;
+//		archivo>>provincia;
+//        archivo>>logros;
+//
+//		if(nombre==espacioNat){
+//			exist=true;
+//		}
+//	archivo.close(); //Cerramos el archivo.
+//	return exist;
+//}
 
