@@ -121,10 +121,10 @@ void mostrarMenuMonitor(){
             cin.get();
             break;
         
-        case 2:
+        case 2:/*
             MostrarRuta("../Grupo14-Practica4/src/ruta.txt");
             cin.ignore();
-            cin.get();
+            cin.get();*/
             break;
 	
         case 3:
@@ -135,16 +135,16 @@ void mostrarMenuMonitor(){
         
         case 4:
         {
-            Monitor m;
-        	m.programarRuta("../Grupo14-Practica4/src/programacion.txt");
+            //Monitor m;
+        	//m.programarRuta("../Grupo14-Practica4/src/programacion.txt");
             cin.ignore();
             cin.get();
             break;
         }
         case 5:
         {
-            Monitor m;
-        	m.mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
+            //Monitor m;
+        	//m.mostrarProgramacion("../Grupo14-Practica4/src/programacion.txt");
             cin.ignore();
             cin.get();
             break;
