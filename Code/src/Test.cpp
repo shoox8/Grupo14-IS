@@ -5,6 +5,7 @@
 // IMPORTAR TODOS LOS FICHEROS DEL PROYECTO
 #include "sendero.hpp"
 #include "monitor.hpp"
+#include "ruta.hpp"
 
 
 void correctEspacioNatRegistration() {
@@ -132,12 +133,92 @@ void correctRutaReg()
 //	archivo.close();
 //}
 
+void correctRutatoSendero(){
+	string namesendero, nombre, tipo, direccion, localidad, estado;
+    int id_ruta, duracion;
+    float longitud;
+
+	fstream archivo;
+	archivo.open("test.txt", ios::out);
+
+	if(!archivo.is_open()) {
+		cout<<"Error al abrir el fichero de ruta.txt"<<endl;
+	}
+
+	namesendero="Sendero1";
+	nombre="Ruta1";
+	tipo="Pie";
+	direccion="Calle";
+	localidad="Cordoba";
+	estado="Disponible";
+	id_ruta=102;
+	duracion=29;
+	longitud=45.9;
+
+	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
+	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+
+	namesendero="Sendero2";
+	nombre="Ruta2";
+	tipo="Pie";
+	direccion="Calle";
+	localidad="Cordoba";
+	estado="Disponible";
+	id_ruta=103;
+	duracion=23;
+	longitud=56.3;
+
+	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
+	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+
+	namesendero="Sendero3";
+	nombre="Ruta3";
+	tipo="Pie";
+	direccion="Calle";
+	localidad="Cordoba";
+	estado="Disponible";
+	id_ruta=104;
+	duracion=348;
+	longitud=49.8;
+
+	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
+ 	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+	
+	namesendero="Sendero4";
+	nombre="Ruta4";
+	tipo="Pie";
+	direccion="Calle";
+	localidad="Cordoba";
+	estado="Disponible";
+	id_ruta=105;
+	duracion=38;
+	longitud=89.9;
+
+	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
+	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+
+	namesendero="Sendero5";
+	nombre="Ruta5";
+	tipo="Pie";
+	direccion="Calle";
+	localidad="Cordoba";
+	estado="Disponible";
+	id_ruta=106;
+	duracion=27;
+	longitud=44.9;
+
+	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), false);
+
+	archivo.close();
+}
+
 bool runAllTests(int argc, char const *argv[]) {
 	cute::suite s { };
 	//TODO add your test here
 	s.push_back(CUTE(correctEspacioNatRegistration));
 	s.push_back(CUTE(correctMonitorReg));
 	s.push_back(CUTE(correctRutaReg));
+	s.push_back(CUTE(correctRutatoSendero));
 //	s.push_back(CUTE(thisIsATest));
 	cute::xml_file_opener xmlfile(argc, argv);
 	cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
