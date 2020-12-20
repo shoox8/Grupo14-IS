@@ -293,9 +293,9 @@ void correctRutatoSendero(){
 	string namesendero;
 
 	fstream archivo;
-	archivo.open("test.txt", ios::out);
+	archivo.open("sendero.txt", ios::out);
 
-	if(!archivo.is_open()) cout<<"No se puedo abrir el fichero";
+	if(!archivo.is_open()) {cout<<"No se puedo abrir el fichero";}
 
 	namesendero="Sendero1";
 	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
@@ -309,7 +309,7 @@ void correctRutatoSendero(){
 	namesendero="Sendero4";
 	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
-	namesendero="Sendero5";
+	namesendero="Sendero88";
 	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), true);
 
 	archivo.close();
