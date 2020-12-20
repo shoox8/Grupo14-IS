@@ -271,7 +271,7 @@ void correctMonitorReg()
 }
 
 
-void correctSenderotoEspacioNat(){
+/*void correctSenderotoEspacioNat(){
 	string nameespacionat;
 
 	fstream archivo;
@@ -296,10 +296,10 @@ void correctSenderotoEspacioNat(){
 
 	archivo.close();
 
-}
+}*/
 
 
-void correctAsignSendero(){
+/*void correctAsignSendero(){
 	string nombre, espacionatural, estado;
 	int rutas;
 
@@ -339,15 +339,15 @@ void correctAsignSendero(){
 	rutas=0;
 
 	ASSERT_EQUAL(datoCorrecto(rutas), false);
-}
+}*/
 
 bool runAllTests(int argc, char const *argv[]) {
 	cute::suite s { };
 	//TODO add your test here
 	s.push_back(CUTE(correctEspacioNatRegistration));
 	s.push_back(CUTE(correctRutaRegistration));
-	s.push_back(CUTE(correctSenderotoEspacioNat));
-	s.push_back(CUTE(correctAsignSendero));
+	//s.push_back(CUTE(correctSenderotoEspacioNat));
+	//s.push_back(CUTE(correctAsignSendero));
 	s.push_back(CUTE(correctMonitorReg));
 	//s.push_back(CUTE(correctRutaReg));
 	//	s.push_back(CUTE(thisIsATest));
@@ -360,6 +360,6 @@ bool runAllTests(int argc, char const *argv[]) {
 	return success;
 }
 
-int main(int argc, char const *argv[]) {
-    return runAllTests(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE;
-}
+//int main(int argc, char const *argv[]) {
+//    return runAllTests(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE;
+//}

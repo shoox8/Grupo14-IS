@@ -1,9 +1,5 @@
-Ruta	Pie	Cazorla	Jaen	1	Disponible	40	50.5	
-
-Ruta2	Bici	Perez	Jaen	2	Disponible	30	50.5	
-
-	Ruta3	Sendero1	Pie	Cazorla	Jaen	Disponible	30	50	
-	Ruta4	Sendero1	Pie	Cazorla	Jaen	Disponible	40	50	
-	Ruta5	Sendero1	Bici	Cazorla	Pepe	Disponible	220	30	
-	Ruta6	Sendero1	Bici	50	50	Disponible	40	40	
-	Sendero1		Pie	Cazorla	Jaen	No-Disponible	20	30	
+Ruta3	Sendero1	Pie	Cazorla	Jaen	Mantenimiento	30	50	
+Ruta4	Sendero1	Pie	Cazorla	Jaen	Disponible	40	50	
+Ruta5	Sendero1	Bici	Cazorla	Pepe	Disponible	220	30	
+Ruta6	Sendero1	Bici	50	50	Disponible	40	40	
+	

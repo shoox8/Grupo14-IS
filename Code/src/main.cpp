@@ -6,7 +6,7 @@
 
 using namespace std;
 
-/*int main()
+int main()
 {
     int opcion;
     User aux;
@@ -54,4 +54,4 @@ using namespace std;
     } while (opcion != 3);
     return 0;
 }
-*/
+

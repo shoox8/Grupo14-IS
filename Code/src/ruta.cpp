@@ -72,7 +72,7 @@ void MostrarRuta(string nFichero){
         archivo>>duracion;
         archivo>>longitud;
 
-        cout << "\t" <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
+        cout <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << estado << "\t" << duracion << "\t" << longitud << endl;
         archivo.ignore();
     }
     archivo.close();
@@ -104,7 +104,7 @@ void MostrarRutaMantenimiento(string nFichero){
             archivo>>duracion;
             archivo>>longitud;
             if(estado=="Mantenimiento" || estado=="mantenimiento") {
-                cout << "\t" <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
+                cout <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << estado << "\t" << duracion << "\t" << longitud << endl;
             }
             archivo.ignore();
             
