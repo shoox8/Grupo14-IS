@@ -31,28 +31,6 @@ void Monitor::mostrarMonitor()
 void Monitor::registrarMonitor(string nombreFichero)
 {
 
-    /*Monitor aux;
-    string nombre;
-    string pass;
-    string dni;
-    int telefono;
-    string ruta;
-
-    cout << "Introduce el nombre del monitor: " << endl;
-    cin >> nombre;
-
-    cout << "Introduce el password del monitor: " << endl;
-    cin >> pass;
-
-    cout << "Introduce el dni del mostrarMonitor: " << endl;
-    cin >> dni;
-
-    cout << "Introduce el telefono del monitor: " << endl;
-    cin >> telefono;
-
-    cout << "Introduce la ruta del monitor: " << endl;
-    cin >> ruta;*/
-
     if (!monitorUnico(_dni))
     {
         cout << "El monitor que desea registrar ya existe" << endl;
@@ -62,7 +40,7 @@ void Monitor::registrarMonitor(string nombreFichero)
     if (!rutaValida(_ruta))
     {
         cout << "La ruta deseada no es válida" << endl;
-        //return;
+        return;
     }
 
     fstream archivo;

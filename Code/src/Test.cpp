@@ -218,23 +218,58 @@ void correctRutaRegistration() {
 }
 
 
-//void correctMonitorReg()
-//{
-//	Monitor m("ale", "9", "9", 9, "camino");
-//	ASSERT(m.monitorUnico("9")==true);
-//	m.registrarMonitor("monitor.txt");
-//	ASSERT(m.monitorUnico("9")==false);
-//}
-
-void correctRutaReg()
+void correctMonitorReg()
 {
-	 /*Ruta r("RutaDePrueba", "0", "0", "0", 0, 0, 0, 0.0); ESTÁ COMENTADO PORQUE RUTA SE QUEDA EN BUCLE (PASO FORZADO HASTA SU CORRECCIÓN)
-	 ASSERT(r.rutaUnica("RutaDePrueba")==true);
-	 r.registrarRuta("ruta.txt");
-	 ASSERT(r.rutaUnica("RutaDePrueba")==false);
-	 */
-	 ASSERT(true); //BORRAR Y DESCOMENTAR LO DE ARRIBA CUANDO RUTA SE CORRIJA
+	//Comprobamos que un monitor no insertado no exista
+	Monitor m("ale", "9", "9", 9, "Ruta");
+	ASSERT(m.monitorUnico("9")==true);
+	//Comprobamos que se inserta un monitor con una ruta valida
+	m.registrarMonitor("monitor.txt");
+	ASSERT(m.monitorUnico("9")==false);
+	//Comprobamos que no se inserte un monitor que no exista pero con una ruta no valida
+	Monitor m2("ale2", "19", "19", 19, "RutaNoValida");
+	m2.registrarMonitor("monitor.txt");
+	ASSERT(m2.monitorUnico("19")==true);
+	//Borramos el monitor insertado para proximas ejecuciones del test
+	ifstream archivo("monitor.txt");
+    if(!archivo.is_open()){
+        cout<<"Error al abrir el fichero de monitor.txt"<<endl;
+    }
+    ofstream archivo2("auxiliar.txt");
+    if(!archivo2.is_open()){
+        cout<<"Error al abrir el fichero de auxiliar.txt"<<endl;
+    }
+
+    string nombre;
+    string pass;
+    string dni;
+    int telefono;
+    string ruta;
+
+    while (!archivo.eof()) {
+        archivo>>nombre;
+        archivo>>pass;
+        archivo>>dni;
+        archivo>>telefono;
+        archivo>>ruta;
+
+        if (dni != "9")
+        {
+            archivo2<<nombre<<"\t"<<pass<<"\t"<<dni<<"\t"<<telefono<<"\t"<<ruta<<endl;
+        }
+
+        if (archivo.eof()) break;
+
+        archivo.ignore();
+    }
+
+    archivo2.close();
+    archivo.close();
+
+    remove("monitor.txt");
+    rename("auxiliar.txt","monitor.txt");
 }
+
 
 //void correctSenderotoEspacioNat(){
 //	string nombre, espacioNat, estado;
@@ -298,19 +333,19 @@ void correctRutatoSendero(){
 	if(!archivo.is_open()) {cout<<"No se puedo abrir el fichero";}
 
 	namesendero="Sendero1";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero2";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero3";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero4";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero88";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), true);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), true);
 
 	archivo.close();
 
@@ -324,8 +359,8 @@ bool runAllTests(int argc, char const *argv[]) {
 	s.push_back(CUTE(correctEspacioNatRegistration));
 	s.push_back(CUTE(correctRutaRegistration));
 	s.push_back(CUTE(correctRutatoSendero));
-//	s.push_back(CUTE(correctMonitorReg));
-//	s.push_back(CUTE(correctRutaReg));
+	s.push_back(CUTE(correctMonitorReg));
+	//s.push_back(CUTE(correctRutaReg));
 	//	s.push_back(CUTE(thisIsATest));
 
 
