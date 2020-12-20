@@ -74,7 +74,7 @@ class Ruta{
 void RegistrarRuta(string nFichero);
 void MostrarRuta(string nFichero);
 void MostrarRutaMantenimiento(string nFichero);
-bool Senderoexiste(string nFichero, string sendero);
+bool Senderoexiste(string nFichero, string namesendero);
 bool isValidSendero(string nombreFichero, string SenderoUser );
 
 #endif
