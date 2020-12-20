@@ -6,19 +6,16 @@ void RegistrarRuta(string nFichero){
     string sendero, nombre, tipo, direccion, localidad, estado;
     int duracion;
     float longitud;
-/*
-    do{
-        cout<<"Introduce el nombre del sendero al que pertenece la ruta: " <<endl;
-        cin>>sendero;
-    }while(!Senderoexiste("sendero.txt", sendero));
-    cout<<"Introduce el nombre de la Ruta: " <<endl;
-    cin>>nombre;
-*/
+
+    
     do{
 	   cout << "Introduce el Sendero donde se encuentre la ruta: " << endl;
 	   cin >> sendero;
-       } while (!isValidSendero(nFichero, sendero));
-
+       } while (!isValidSendero(nFichero, sendero) || !Senderoexiste("sendero.txt", namesendero));
+	
+	cout<<"Introduce el nombre de la Ruta: " <<endl;
+    cin>>nombre;
+	
     cout<<"Introduce el tipo de la Ruta: " <<endl;
     cin>>tipo;
 
@@ -91,12 +88,11 @@ void MostrarRutaMantenimiento(string nFichero){
     string tipo;
     string direccion;
     string localidad;
-    int id_ruta;
     string estado;
     int duracion;
     float longitud;
    
-        cout << "  |Sendero|  |Nombre|  |Tipo|  |Direccion|  |Localidad|  |Id_ruta|  |Estado|  |Duracion|  |Longitud|" <<endl;
+        cout << "  |Sendero|  |Nombre|  |Tipo|  |Direccion|  |Localidad|  |Estado|  |Duracion|  |Longitud|" <<endl;
     
         while (!archivo.eof()){
             archivo>>sendero;
@@ -104,12 +100,11 @@ void MostrarRutaMantenimiento(string nFichero){
             archivo>>tipo;
             archivo>>direccion;
             archivo>>localidad;
-            archivo>>id_ruta;
             archivo>>estado;
             archivo>>duracion;
             archivo>>longitud;
             if(estado=="Mantenimiento" || estado=="mantenimiento") {
-                cout << "\t" <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << id_ruta << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
+                cout << "\t" <<sendero<<"\t"<< nombre << "\t" << tipo << "\t" << direccion << "\t" << localidad << "\t" << estado << "\t" << duracion << "\t" << longitud << "\t" << endl;
             }
             archivo.ignore();
             
@@ -117,23 +112,25 @@ void MostrarRutaMantenimiento(string nFichero){
     
     archivo.close();
 }
-/*bool Senderoexiste(string nFichero, string namesendero){
-    bool res = false;
-	ifstream archivo(nFichero);
-	if(!archivo.is_open()){
-		cout<<"Error al abrir el fichero de sendero.txt"<<endl;
-	}
+bool Senderoexiste(string nFichero, string namesendero){
+    bool res=false;
+    ifstream fichero(nFichero);
+    if (!fichero) cout<<"No se pudo abrir el fichero";
+
     string sendero;
-    string nombre;
-    string tipo;
-    string direccion;
-    string localidad;
-    int id_ruta;
-    string estado;
-    int duracion;
-    float longitud;
+
+    while(!fichero.eof()){
+        fichero>>sendero;
+        
+
+        if(sendero==namesendero) res=true;
+        
+    }
+    fichero.close();
     return res;
-}*/
+
+
+}
 
 bool isValidSendero(string nombreFichero, string SenderoUser ){
     ifstream archivo(nombreFichero);
