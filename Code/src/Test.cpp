@@ -298,19 +298,19 @@ void correctRutatoSendero(){
 	if(!archivo.is_open()) {cout<<"No se puedo abrir el fichero";}
 
 	namesendero="Sendero1";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
 
 	namesendero="Sendero2";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
 
 	namesendero="Sendero3";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
 
 	namesendero="Sendero4";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), false);
 
 	namesendero="Sendero88";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), true);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", sendero), true);
 
 	archivo.close();
 
