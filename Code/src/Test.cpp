@@ -271,41 +271,83 @@ void correctMonitorReg()
 }
 
 
-void correctRutatoSendero(){
-	string namesendero;
+void correctSenderotoEspacioNat(){
+	string nameespacionat;
 
 	fstream archivo;
 	archivo.open("sendero.txt", ios::out);
 
 	if(!archivo.is_open()) {cout<<"No se puedo abrir el fichero";}
 
-	namesendero="Sendero1";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	nameespacionat="Cazorla";
+	ASSERT_EQUAL(EspacioNatExiste("sendero.txt", nameespacionat), true);
 
-	namesendero="Sendero2";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	nameespacionat="Cazorla";
+	ASSERT_NOT_EQUAL_TO(EspacioNatExiste("sendero.txt", nameespacionat), false);
 
-	namesendero="Sendero3";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	nameespacionat="Donana";
+	ASSERT_EQUAL(EspacioNatExiste("sendero.txt", nameespacionat), true);
 
-	namesendero="Sendero4";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
+	nameespacionat="Donana";
+	ASSERT_NOT_EQUAL_TO(EspacioNatExiste("sendero.txt", nameespacionat), false);
 
-	namesendero="Sendero88";
-	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), true);
+	nameespacionat="Grazalema";
+	ASSERT_EQUAL(EspacioNatExiste("sendero.txt", nameespacionat), false);
 
 	archivo.close();
 
 }
 
 
+void correctAsignSendero(){
+	string nombre, espacionatural, estado;
+	int rutas;
+
+	fstream archivo;
+	archivo.open("testsendero.txt", ios::out);
+
+	if(!archivo.is_open()) {
+		cout<<"Error al abrir el fichero de sendero.txt"<<endl;
+	}
+
+	nombre="Sendero1";
+	espacionatural="Cazorla";
+	estado="Disponible";
+	rutas=5;
+
+	ASSERT_EQUAL(datoCorrecto(rutas), true);
+	archivo<<nombre<<"\t"<<espacionatural<<"\t"<<estado<<"\t"<<rutas<<endl;
+
+	nombre="Sendero2";
+	espacionatural="Cazorla";
+	estado="Disponible";
+	rutas=8;
+
+	ASSERT_EQUAL(datoCorrecto(rutas), true);
+	archivo<<nombre<<"\t"<<espacionatural<<"\t"<<estado<<"\t"<<rutas<<endl;
+
+	nombre="Sendero3";
+	espacionatural="Cazorla";
+	estado="Disponible";
+	rutas=15;
+
+	ASSERT_EQUAL(datoCorrecto(rutas), false);
+
+	nombre="Sendero4";
+	espacionatural="Cazorla";
+	estado="Disponible";
+	rutas=0;
+
+	ASSERT_EQUAL(datoCorrecto(rutas), false);
+}
 
 bool runAllTests(int argc, char const *argv[]) {
 	cute::suite s { };
 	//TODO add your test here
 	s.push_back(CUTE(correctEspacioNatRegistration));
 	s.push_back(CUTE(correctRutaRegistration));
-	//s.push_back(CUTE(correctRutatoSendero));
+	s.push_back(CUTE(correctSenderotoEspacioNat));
+	s.push_back(CUTE(correctAsignSendero));
 	s.push_back(CUTE(correctMonitorReg));
 	//s.push_back(CUTE(correctRutaReg));
 	//	s.push_back(CUTE(thisIsATest));
