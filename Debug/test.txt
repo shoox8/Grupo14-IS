@@ -1,4 +1,0 @@
-Sendero1	Cazorla	Disponible	3
-Sendero2	Cazorla	Disponible	4
-Sendero3	Cazorla	Disponible	3
-Sendero4	Cazorla	Disponible	3

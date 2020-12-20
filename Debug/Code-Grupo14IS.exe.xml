@@ -1,6 +1,0 @@
-<testsuites>
-	<testsuite name="AllTests" tests="2">
-		<testcase classname="AllTests" name="correctEspacioNatRegistration"/>
-		<testcase classname="AllTests" name="correctRutaRegistration"/>
-	</testsuite>
-</testsuites>

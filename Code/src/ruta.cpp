@@ -11,7 +11,7 @@ void RegistrarRuta(string nFichero){
     do{
 	   cout << "Introduce el Sendero donde se encuentre la ruta: " << endl;
 	   cin >> sendero;
-       } while (!isValidSendero(nFichero, sendero) || !Senderoexiste("sendero.txt", namesendero));
+       } while (!isValidSendero(nFichero, sendero) || !Senderoexiste("sendero.txt", sendero));
 	
 	cout<<"Introduce el nombre de la Ruta: " <<endl;
     cin>>nombre;
