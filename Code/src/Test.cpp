@@ -292,10 +292,10 @@ void correctRutaReg()
 void correctRutatoSendero(){
 	string namesendero;
 
-	fstream archivo(nFichero);
+	fstream archivo;
 	archivo.open("test.txt", ios::out);
 
-	if(!archivo()) cout<<"No se puedo abrir el fichero";
+	if(!archivo.is_open()) cout<<"No se puedo abrir el fichero";
 
 	namesendero="Sendero1";
 	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
