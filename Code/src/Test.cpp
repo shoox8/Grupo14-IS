@@ -289,92 +289,41 @@ void correctRutaReg()
 //	archivo.close();
 //}
 
-/*void correctRutatoSendero(){
-	string namesendero, nombre, tipo, direccion, localidad, estado;
-    int id_ruta, duracion;
-    float longitud;
+void correctRutatoSendero(){
+	string namesendero;
 
-	fstream archivo;
+	fstream archivo(nFichero);
 	archivo.open("test.txt", ios::out);
 
-	if(!archivo.is_open()) {
-		cout<<"Error al abrir el fichero de ruta.txt"<<endl;
-	}
+	if(!archivo()) cout<<"No se puedo abrir el fichero";
 
 	namesendero="Sendero1";
-	nombre="Ruta1";
-	tipo="Pie";
-	direccion="Calle";
-	localidad="Cordoba";
-	estado="Disponible";
-	id_ruta=102;
-	duracion=29;
-	longitud=45.9;
-
-	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
-	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero2";
-	nombre="Ruta2";
-	tipo="Pie";
-	direccion="Calle";
-	localidad="Cordoba";
-	estado="Disponible";
-	id_ruta=103;
-	duracion=23;
-	longitud=56.3;
-
-	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
-	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero3";
-	nombre="Ruta3";
-	tipo="Pie";
-	direccion="Calle";
-	localidad="Cordoba";
-	estado="Disponible";
-	id_ruta=104;
-	duracion=348;
-	longitud=49.8;
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
-	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
- 	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
-	
 	namesendero="Sendero4";
-	nombre="Ruta4";
-	tipo="Pie";
-	direccion="Calle";
-	localidad="Cordoba";
-	estado="Disponible";
-	id_ruta=105;
-	duracion=38;
-	longitud=89.9;
-
-	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), true);
-	archivo<<endl<<"\t"<<namesendero<<"\t"<<nombre<<"\t"<<tipo<<"\t"<<direccion<<"\t"<<localidad<<"\t"<<id_ruta<<"\t"<<estado<<"\t"<<duracion<<"\t"<<longitud<<"\t";
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), false);
 
 	namesendero="Sendero5";
-	nombre="Ruta5";
-	tipo="Pie";
-	direccion="Calle";
-	localidad="Cordoba";
-	estado="Disponible";
-	id_ruta=106;
-	duracion=27;
-	longitud=44.9;
-
-	ASSERT_EQUAL(Senderoexiste("test.txt", namesendero), false);
+	ASSERT_NOT_EQUAL_TO(Senderoexiste("sendero.txt", namesendero), true);
 
 	archivo.close();
+
 }
-*/
+
+
 
 bool runAllTests(int argc, char const *argv[]) {
 	cute::suite s { };
 	//TODO add your test here
 	s.push_back(CUTE(correctEspacioNatRegistration));
 	s.push_back(CUTE(correctRutaRegistration));
-//	s.push_back(CUTE(correctRutatoSendero));
+	s.push_back(CUTE(correctRutatoSendero));
 //	s.push_back(CUTE(correctMonitorReg));
 //	s.push_back(CUTE(correctRutaReg));
 	//	s.push_back(CUTE(thisIsATest));
