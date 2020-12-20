@@ -17,7 +17,6 @@ class Sendero{
 				rutas_= 0;
 			}
 
-
 		//constructor parametrizado
 			Sendero(string nombre, string espacionatural, string estado, int rutas){
 				nombre_=nombre;
@@ -51,5 +50,7 @@ class Sendero{
 void registrarSendero(string nombreFichero);
 void mostrarSendero(string nombreFichero);
 bool isValidEspacioNat(string nombreFichero, string espacioNat);
+bool EspacioNatexiste(string nombreFichero, string namesespacionat);
+bool DatoCorrecto(int rutas);
 
 #endif

@@ -84,35 +84,38 @@ bool isValidEspacioNat(string nombreFichero, string espacioNat ){
 	        	cout << "No se puede registrar un sendero en este espacio natural" << endl;
 	        	return false;
 	        }
-
 	        archivo.ignore();
 		}
-
 		archivo.close();
+
 
 		return true;
 }
 
-//bool existEspacioNat(string nombreFichero, string espacioNat){
-//    bool exist = false
-//	ifstream archivo(nombreFichero);
-//	if(!archivo.is_open()){
-//		cout<<"Error al abrir el fichero de espacionat.txt"<<endl;
-//	}
-//
-//	string nombre;
-//	string provincia;
-//    string logros;
-//
-//    while (!archivo.eof()) {
-//		archivo>>nombre;
-//		archivo>>provincia;
-//        archivo>>logros;
-//
-//		if(nombre==espacioNat){
-//			exist=true;
-//		}
-//	archivo.close(); //Cerramos el archivo.
-//	return exist;
-//}
+bool EspacioNatexiste(string nFichero, string nameespacionat){
+    bool exist=false;
+    ifstream fichero(nFichero);
+    if (!fichero) cout<<"No se pudo abrir el fichero";
 
+    string espacionat;
+
+    while(!fichero.eof()){
+        fichero>>espacionat;
+
+
+        if(espacionat==nameespacionat) exist=true;
+
+    }
+    fichero.close();
+    return exist;
+
+}
+
+
+bool datoCorrecto(int rutas){
+	bool correcto=false;
+	if(rutas>=1 && rutas<=9){
+		correcto=true;
+	}
+	return correcto;
+}
